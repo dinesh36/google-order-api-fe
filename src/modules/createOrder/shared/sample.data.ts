@@ -1,48 +1,15 @@
-import { FormDataType } from './formData.type';
+import {FormDataType, OrderContact, OrderLocation} from './formData.type';
 
-export const lineItemData = [
-  {
-    name: 'Spicy Fried Chicken',
-    type: 'REGULAR',
-    id: '299977679',
-    quantity: 2,
-    price: {
-      type: 'ESTIMATE',
-      amount: {
-        currencyCode: 'AUD',
-        units: '39',
-        nanos: 600000000,
-      },
-    },
-    offerId: 'MenuItemOffer/QWERTY/scheduleId/496/itemId/143',
-    extension: {
-      '@type': 'type.googleapis.com/google.actions.v2.orders.FoodItemExtension',
-    },
-  },
-];
+export const lineItemData = [];
 
-export const locationData = {
-  coordinates: {
-    latitude: -33.8376441,
-    longitude: 151.0868736,
-  },
+export const locationData: OrderLocation = {
   formattedAddress: 'Killoola St, 1, Concord West NSW 2138',
   zipCode: '2138',
   city: 'Concord West',
-  postalAddress: {
-    regionCode: 'AU',
-    postalCode: '2138',
-    administrativeArea: 'NSW',
-    locality: 'Concord West',
-    addressLines: [
-      'Killoola St',
-      '1',
-    ],
-  },
+  state: 'NSW'
 };
 
-export const contactData = {
-  displayName: 'Hab Sy',
+export const contactData: OrderContact = {
   email: 'hab9878.sy@gmail.com',
   phoneNumber: '+61000000000',
   firstName: 'Hab',
@@ -50,13 +17,12 @@ export const contactData = {
 };
 
 export const SAMPLE_DATA: FormDataType = {
-  lineItems: JSON.stringify(lineItemData, null, 4),
-  contact: JSON.stringify(contactData, null, 4),
-  location: JSON.stringify(locationData, null, 4),
+  // lineItems: lineItemData,
+  contact: contactData,
+  location: locationData,
   merchantId: 'xxx',
   deliveryFee: '0',
   subTotal: '0',
   total: '0',
-  googleOrderId: '000000',
   paymentType: 'ON_FULFILLMENT',
 };

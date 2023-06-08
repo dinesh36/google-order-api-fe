@@ -7,7 +7,7 @@ const callCreateOrderService = async (formData: FormDataType) => {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(getCreateOrderRequestBody(formData)),
   };
-  const response = await fetch('/api/order', requestOptions);
+  const response = await fetch('/api/create-order/web', requestOptions);
   const responseData = await response.json();
   return responseData;
 };
