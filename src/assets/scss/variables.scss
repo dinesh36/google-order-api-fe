@@ -1,0 +1,40 @@
+$primary-color: #108a00;
+$secondary-color: #F6F6F6;
+$black-font:#0D1A3A;
+
+$tablet-width: 768px;
+$desktop-width: 1024px;
+$mobile-width: 480px;
+
+@mixin tablet {
+  @media (min-width: #{$tablet-width}) and (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$tablet-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin mobile-and-tablet {
+  @media (max-width: #{$desktop-width - 1px}) {
+    @content;
+  }
+}
+
+@mixin appHorizontalPadding {
+  padding-left: 3vw;
+  padding-right: 3vw;
+  @include tablet{
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+  @include mobile{
+    padding-left: 5vw;
+    padding-right: 5vw;
+  }
+}
+$primary-color-light: rgba(16, 138, 0, 0.1);
+$primary-color-border-light: rgba(16, 138, 0, 0.4);
